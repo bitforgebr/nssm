@@ -32,6 +32,7 @@ utf8.cpp
 utf8.h
 messages.mc
 messages.h
+version.h
 )
 
 # TODO that is the way to go to generate messages.h automatically
@@ -45,6 +46,13 @@ messages.h
 #add_custom_command(OUTPUT messages.h
 #COMMAND mc -u -U ${CMAKE_CURRENT_SOURCE_DIR}/messages.mc -r . -h .
 #DEPENDS messages.mc
+#VERBATIM
+#)
+
+# TODO another automatically generated file to deal with
+#add_custom_command(OUTPUT version.h
+#COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/version.cmd
+#DEPENDS version.cmd
 #VERBATIM
 #)
 

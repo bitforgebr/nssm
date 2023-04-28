@@ -57,6 +57,10 @@ version.h
 #)
 
 #target_include_directories()
-#target_link_libraries()
+
+target_link_libraries(nssm
+Shlwapi.lib
+)
+
 #target_link_directories()
 

@@ -1,0 +1,54 @@
+cmake_minimum_required(VERSION 3.21.1)
+project(nssm)
+
+add_executable(nssm
+account.cpp
+account.h
+console.cpp
+console.h
+env.cpp
+env.h
+event.cpp
+event.h
+gui.cpp
+gui.h
+hook.cpp
+hook.h
+imports.cpp
+imports.h
+io.cpp
+io.h
+nssm.cpp
+nssm.h
+process.cpp
+process.h
+registry.cpp
+registry.h
+service.cpp
+service.h
+settings.cpp
+settings.h
+utf8.cpp
+utf8.h
+messages.mc
+messages.h
+)
+
+# TODO that is the way to go to generate messages.h automatically
+# however, the file is generated into the build directory and
+# we need to put this directory into the include directories
+# for the project or copy the file to the source directory
+# and I dunno how to do that using cmake polite way
+#
+# uncomment to generate another messages.h and replace the
+# original one by copying from the build directory
+#add_custom_command(OUTPUT messages.h
+#COMMAND mc -u -U ${CMAKE_CURRENT_SOURCE_DIR}/messages.mc -r . -h .
+#DEPENDS messages.mc
+#VERBATIM
+#)
+
+#target_include_directories()
+#target_link_libraries()
+#target_link_directories()
+

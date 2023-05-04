@@ -1,0 +1,53 @@
+cmake_minimum_required(VERSION 3.21.1)
+
+add_executable(ScuaService
+account.h
+console.h
+env.h
+event.h
+gui.h
+imports.h
+io.h
+nssm.h
+process.h
+registry.h
+resource.h
+service.h
+settings.h
+account.cpp
+console.cpp
+env.cpp
+event.cpp
+gui.cpp
+imports.cpp
+io.cpp
+nssm.cpp
+nssm.rc
+process.cpp
+registry.cpp
+service.cpp
+settings.cpp
+messages.mc # look comment bellow
+messages.h
+version.cmd # run it to generate new version.h
+version.h
+)
+
+# TODO that is the way to go to generate messages.h automatically
+# however, the file is generated into the build directory and
+# we need to put this directory into the include directories
+# for the project or copy the file to the source directory
+# and I dunno how to do that using cmake polite way
+#
+# uncomment to generate another messages.h and replace the
+# original one by copying from the build directory
+#add_custom_command(OUTPUT messages.h
+#COMMAND mc -u -U ${CMAKE_CURRENT_SOURCE_DIR}/messages.mc -r . -h .
+#DEPENDS messages.mc
+#VERBATIM
+#)
+
+target_link_libraries(ScuaService shlwapi.lib)
+target_include_directories(ScuaService PRIVATE)
+target_link_directories(ScuaService PRIVATE)
+
